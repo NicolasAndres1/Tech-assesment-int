@@ -48,7 +48,6 @@ function outputDate(dates) {
   difference -= yearsDifference * lengthOfYearInSeconds;
 
   const monthsDifference = Math.floor(difference / lengthOfMonthInSeconds);
-  console.log(difference / lengthOfMonthInSeconds);
   difference -= monthsDifference * lengthOfMonthInSeconds;
 
   const daysDifference = Math.floor(dateEnd - dateStart) / lengthOfDayInSeconds;

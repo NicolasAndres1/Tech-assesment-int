@@ -41,13 +41,14 @@ function outputDate(dates) {
   let difference = Math.floor(dateEnd.getTime() - dateStart.getTime()); // Get the difference between end date and start date
 
   const lengthOfDayInSeconds = 1000 * 60 * 60 * 24; // Static values of the length of a day, month and years in seconds
-  const lengthOfMonthInSeconds = lengthOfDayInSeconds * 31;
+  const lengthOfMonthInSeconds = lengthOfDayInSeconds * 30.417;
   const lengthOfYearInSeconds = lengthOfDayInSeconds * 365;
 
   const yearsDifference = Math.floor(difference / lengthOfYearInSeconds); // Calculations
   difference -= yearsDifference * lengthOfYearInSeconds;
 
   const monthsDifference = Math.floor(difference / lengthOfMonthInSeconds);
+  console.log(difference / lengthOfMonthInSeconds);
   difference -= monthsDifference * lengthOfMonthInSeconds;
 
   const daysDifference = Math.floor(dateEnd - dateStart) / lengthOfDayInSeconds;

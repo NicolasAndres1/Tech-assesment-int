@@ -30,6 +30,7 @@ const dates = [
 
 // Receive string of dates one after each other
 function outputDate(dates) {
+  // Function to split the date string and return a Date object
   const getSplittedDate = (date) => {
     const splittedDate = date.split(".");
     return new Date(`${splittedDate[1]}/${splittedDate[0]}/${splittedDate[2]}`);
@@ -37,13 +38,13 @@ function outputDate(dates) {
 
   const dateStart = getSplittedDate(dates[0]);
   const dateEnd = getSplittedDate(dates[1]);
-  let difference = Math.floor(dateEnd.getTime() - dateStart.getTime());
+  let difference = Math.floor(dateEnd.getTime() - dateStart.getTime()); // Get the difference between end date and start date
 
-  const lengthOfDayInSeconds = 1000 * 60 * 60 * 24;
+  const lengthOfDayInSeconds = 1000 * 60 * 60 * 24; // Static values of the length of a day, month and years in seconds
   const lengthOfMonthInSeconds = lengthOfDayInSeconds * 31;
   const lengthOfYearInSeconds = lengthOfDayInSeconds * 365;
 
-  const yearsDifference = Math.floor(difference / lengthOfYearInSeconds);
+  const yearsDifference = Math.floor(difference / lengthOfYearInSeconds); // Calculations
   difference -= yearsDifference * lengthOfYearInSeconds;
 
   const monthsDifference = Math.floor(difference / lengthOfMonthInSeconds);
@@ -51,6 +52,7 @@ function outputDate(dates) {
 
   const daysDifference = Math.floor(dateEnd - dateStart) / lengthOfDayInSeconds;
 
+  // Returning a template literal with the different possibilities
   return `${
     yearsDifference
       ? `${yearsDifference} ${yearsDifference > 1 ? "years, " : "year, "}`
